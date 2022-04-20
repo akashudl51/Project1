@@ -41,14 +41,14 @@ export default class UserEdit extends Component {
   render() {
     return (
       <div>
-                 <button onClick={()=>{this.handleonclick()}} className="editbutton"> View</button>
+        <button onClick={()=>{this.handleonclick()}} className="editbutton"> View</button>
         <Modal
         show ={this.state.show}>
         <Modal.Header><b>Edit Email Id</b></Modal.Header>
         <Modal.Body>
         <form onSubmit={this.handleSubmit}>
-        <span><b>Email-Id</b>
-           <textarea type="textarea" name="email" style={{width:"100%",height:"100px"}} value={this.state.email} onChange={this.handleChange} required></textarea>
+        <span><b>Email-Id </b>
+           <input type="text" name="email"  value={this.state.email} onChange={this.handleChange} required></input>
         </span>
         
         

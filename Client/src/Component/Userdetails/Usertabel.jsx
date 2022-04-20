@@ -21,7 +21,7 @@ export default function Usertabel({post}) {
       {post.map((item) => (
         <tr key={item.uid}>
           <td>
-            <span>
+            <span className="avatar">
             <Avatar variant="square">{item.ename[0].toUpperCase()} </Avatar> {item.ename}
             </span>
            </td>

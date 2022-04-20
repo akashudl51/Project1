@@ -9,7 +9,7 @@ export default function User() {
   const [posts, setPosts] = useState([]);
  
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(5);
+  const [postsPerPage,setpostsPerPage] = useState(5);
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -20,17 +20,19 @@ export default function User() {
     };
 
     fetchPosts();
-  }, [posts]);
+  }, [posts,postsPerPage]);
+
+
 
   // Get current posts
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
-
+   
   // Change page
   const paginate = pageNumber => setCurrentPage(pageNumber);
   return (
-    <div>
+    <div className="user">
       <Paper elevation={3}>
         <ErrorBoundry>
       <Usertabel post={currentPosts}/>
@@ -40,7 +42,11 @@ export default function User() {
         postsPerPage={postsPerPage}
         totalPosts={posts.length}
         paginate={paginate}
+        currentPage={currentPage}
+        onChange={value=>setpostsPerPage(value)}
       />
+      
+      
       </ErrorBoundry>
       </Paper>
     </div>
